@@ -1,0 +1,12 @@
+D:\ooaip\StarshipGame\bin\Debug\net8.0\StarshipGame.deps.json
+D:\ooaip\StarshipGame\bin\Debug\net8.0\StarshipGame.dll
+D:\ooaip\StarshipGame\bin\Debug\net8.0\StarshipGame.pdb
+D:\ooaip\StarshipGame\obj\Debug\net8.0\StarshipGame.GeneratedMSBuildEditorConfig.editorconfig
+D:\ooaip\StarshipGame\obj\Debug\net8.0\StarshipGame.AssemblyInfoInputs.cache
+D:\ooaip\StarshipGame\obj\Debug\net8.0\StarshipGame.AssemblyInfo.cs
+D:\ooaip\StarshipGame\obj\Debug\net8.0\StarshipGame.csproj.CoreCompileInputs.cache
+D:\ooaip\StarshipGame\obj\Debug\net8.0\StarshipGame.sourcelink.json
+D:\ooaip\StarshipGame\obj\Debug\net8.0\StarshipGame.dll
+D:\ooaip\StarshipGame\obj\Debug\net8.0\refint\StarshipGame.dll
+D:\ooaip\StarshipGame\obj\Debug\net8.0\StarshipGame.pdb
+D:\ooaip\StarshipGame\obj\Debug\net8.0\ref\StarshipGame.dll
