@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Install Required Tools
+        run: |
+          dotnet new tool-manifest
+          dotnet tool install dotnet-coverage
+          dotnet tool install coverlet.console
+          dotnet add StarshipGame.Test/StarshipGame.Test.csproj package Moq
+
+      - name: Build
+        run: |
+          dotnet build StarshipGame/StarshipGame.csproj --configuration Release
+          dotnet build StarshipGame.Test/StarshipGame.Test.csproj --configuration Release
+
+      - name: Run Tests
+        run: dotnet test StarshipGame.Test/StarshipGame.Test.csproj --configuration Release --collect:"XPlat Code Coverage" --verbosity normal
+
+      - name: Generate Coverage Report
+        run: |
+          dotnet tool install -g dotnet-reportgenerator-globaltool
+          reportgenerator -reports:./StarshipGame.Test/TestResults/**/coverage.cobertura.xml -targetdir:coverage-report -reporttypes:TextSummary
+
+      - name: Display Coverage
+        run: cat coverage-report/Summary.txt
+
+      - name: Code Style Check
+        run: dotnet format --verify-no-changes
